@@ -30,7 +30,7 @@
                 请输入您的学号
             </div>
             <div id="subTileSpan" style="color: #FFF; font-size: 15px; line-height:16px; padding-left: 3px; float: left; margin-top:20px; font-family: Arial, sans-serif">
-                <div>Login Page</div><div>留空自动判定为游客登陆</div>
+                <div>Login Page</div><div></div>
             </div>
         </div>
         <div style="float:left;margin-left:0;" id="warningSign_div"></div>
@@ -40,14 +40,17 @@
 	<br>
 	<br>
 	<br>
-        <div>
+        <div style="color: #FFF; font-size: 15px; line-height:16px; padding-left: 3px; float: left; margin-top:20px; font-family: Arial, sans-serif">
 			<span>学号[请不要加C]:</span>
+			<br>
 			<input type="text" placeholder="请输入学号,不要加C" id="username">
 			<br>
 		<br>
 		<br>
 			<span>密码:</span>
+		        <br>
 			<input type="password" placeholder="请输入密码" id="passwd">
+			<br>
 			<input type="button" value="登录" onclick="login()">
 			<input type="button" id="btnClear" value="清除" onclick="doClear()" />
 		</div>
