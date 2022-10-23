@@ -36,19 +36,70 @@
         <div style="float:left;margin-left:0;" id="warningSign_div"></div>
         <br>
         <div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div id="webnameDiv" style="overflow: hidden; height: 20px; line-height: 20px; font-family: 黑体; color: #fff; font-size: 16px; padding-left: 5px; float: left;">
-            请输入您的学号,留空自动判定为游客登陆
-            </div>
-            <br>
-            <br>
-            <input type="text" name="请输入您的学号" id="请输入您的学号">
-            <br>
-            <a href="./index.html"><button>登陆</button></a>
-        </div>
+			<span>学号:</span>
+			<input type="text" placeholder="请输入学号" id="username">
+			<br>
+			<span>密码:</span>
+			<input type="password" placeholder="请输入学号" id="passwd">
+			<input type="button" value="登录" onclick="login()">
+			<input type="button" id="btnClear" value="清除" onclick="doClear()" />
+		</div>
+		<script type="text/javascript">
+			let accountAll = [{ // 存储账户json数据的数组
+					username: 211701,
+					passwd: 'C2117w01'
+				},
+				{
+					username: 211700,
+					passwd: 'C2117wAdmin'
+				},
+				{
+					username: 211702,
+					passwd: 'C2117w02'
+				},
+				{
+					username: 211703,
+					passwd: 'C2117w03'
+				},
+				{
+					username: 211704,
+					passwd: 'C2117w04'
+				},
+			]
+			function login() { //登陆判断
+				let username = document.getElementById('username').value;
+				let passwd = document.getElementById('passwd').value;
+				let account = accountAll.filter(function(e) {
+					return e.username == username
+				})[0]; // 筛选账号返回数组，不存在则返回空数组
+				if (!account) {
+					alert('学号不存在');
+					return false
+				} else {
+					if (account.username == username && account.passwd == passwd) {
+						alert('登陆成功');
+						window.location.href="./index.html"
+					} else {
+						alert('密码错误');
+						return false
+					}
+				}
+			}
+			function doClear() { //获取页面所有的input框，是text和password框，内容=空串
+				let inputs = document.getElementsByTagName("input");
+				for (let i = 0; i < inputs.length; i++) {
+					if (inputs[i].type == 'text' || inputs[i].type == 'password') {
+						inputs[i].value = '';
+					}
+				}
+			}
+			//给清除按钮增加onclick事件
+			let btnClear = document.getElementById('btnClear');
+			btnClear.addEventListener('click', function() {
+				doClear();
+			});
+			
+		</script>
     </div>
 </body>
 </html>
