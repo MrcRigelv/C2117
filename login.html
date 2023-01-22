@@ -1,63 +1,138 @@
 <!DOCTYPE html>
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta http-equiv="Cache-Control" content="max-age=300" />
-    <meta http-equiv="refresh" content="1800" />
-    <title>C2117官方网站-登陆</title>
-   </head>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湛江港城中学初二17官网-登录界面</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+			text-decoration: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://c2.im5i.com/2023/01/22/YHdz1.jpeg');
+            background-size: cover;
+        }
+        .login{
+            width: 550px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,.6),
+                rgba(255,255,255,.4),
+                rgba(255,255,255,.2)
+            );
+            /* 使背景模糊化 */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px #a29bfe;
+            border-radius: 0px;
+        }
+
+        .table{
+            font: 900 40px '';
+            text-align: center;
+            letter-spacing: 5px;
+            color: #44598a;
+        }
+
+        .box{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box input{
+            width: 400px;
+            height: 100%;
+            margin-bottom: 20px;
+            outline: none;
+            border: 0;
+            padding: 10px;
+            background-color: transparent;
+            border-bottom: 3px solid rgb(150, 150, 240);
+            font: 900 14px '';
+        }
+
+        .go{
+            text-align: center;
+            display: block;
+            height: 24px;
+            padding: 12px;
+            font: 900 16px '';
+            border-radius: 0px;
+            margin-top: 20px;
+            color: #fff;
+            letter-spacing: 3px;
+            background-image: linear-gradient(to left,
+            #fd79a8,#a29bf6);
+        }
+
+		.reset{
+            text-align: center;
+            display: block;
+            height: 24px;
+            padding: 12px;
+            font: 900 16px '';
+            border-radius: 0px;
+            margin-top: 20px;
+            color: #fff;
+            letter-spacing: 3px;
+            background-image: linear-gradient(to left,
+            #fd79a8,#a29bf6);
+        }
+    </style>
+	<script>
+		Date.prototype.format = function (fmt) {
+			var o = {
+				"y+": this.getFullYear, //年
+				"M+": this.getMonth() + 1, //月份
+				"d+": this.getDate(), //日
+				"h+": this.getHours(), //小时
+				"m+": this.getMinutes(), //分
+				"s+": this.getSeconds() //秒
+			};
+			if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for (var k in o)
+				if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+			return fmt;
+		}
+		setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+	</script>
+ 
+	
+</head>
 <body>
-    <!--主体-->
-    <div id="headerdiv" style="background-color:#00fd1e; height: 65px; min-width:1400px;">
-        <img style="width: 62px; float: left; margin: 0" src="https://cdn-pic.gcxstudio.cn/2022/10/22/vD1B.png" alt="logo" border="0">
-        <div style="float: left">
-            <div id="webnameDiv" style="overflow: hidden; height: 65px; line-height: 65px; font-family: 黑体; color: #fff; font-size: 33px; padding-left: 5px; float: left;">
-                C2117官方网站-登陆
-            </div>
-            <div id="subTileSpan" style="color: #FFF; font-size: 15px; line-height:16px; padding-left: 3px; float: left; margin-top:20px; font-family: Arial, sans-serif">
-                <div>2.0</div><div>The login page for Offical Website of C2117</div>
-            </div>
-        </div>
-        <div style="float:left;margin-left:0;" id="warningSign_div"></div>
-        <table style="float: right;height:65px; text-align:center; ">
-            
-        </table>
-    </div>
-    <div id="headerdiv" style="background-color:#5d1ad0; height: 2000px; min-width:1400px;">
+    <div class="login">
+        <div class="box">
+            <p class="table">登录界面</p>
+            <br>
+			<div id="dateTime" style="text-align: center;font: 900 14px ''; color:#303d37">[当前时间]</div>
+            <input type="text" placeholder="请输入学号,不要加C" id="username">
+            <input type="password" placeholder="请输入密码" id="passwd">
+            <br>
+            <a href="#" class="go" onclick="login()">登录/Login</a>
+			<a href="#" class="reset" onclick="doClear()">清除/Clear</a>
+			
         
-        <div style="float: left">
-            <div id="webnameDiv" style="overflow: hidden; height: 65px; line-height: 65px; font-family: 黑体; color: #fff; font-size: 33px; padding-left: 5px; float: left;">
-                请输入您的学号
-            </div>
-            <div id="subTileSpan" style="color: #FFF; font-size: 15px; line-height:16px; padding-left: 3px; float: left; margin-top:20px; font-family: Arial, sans-serif">
-                <div>Login Page</div><div></div>
-            </div>
-        </div>
-        <div style="float:left;margin-left:0;" id="warningSign_div"></div>
-        <br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-        <div style="color: #FFF; font-size: 15px; line-height:16px; padding-left: 3px; float: left; margin-top:20px; font-family: Arial, sans-serif">
-			<span>学号[请不要加C]:</span>
-			<br>
-			<input type="text" placeholder="请输入学号,不要加C" id="username">
-			<br>
-		<br>
-		<br>
-			<span>密码:</span>
-		        <br>
-			<input type="password" placeholder="请输入密码" id="passwd">
-			<br>
-			<input type="button" value="登录" onclick="login()">
-			<input type="button" id="btnClear" value="清除" onclick="doClear()" />
-		</div>
+	</div>
 		<script type="text/javascript">
 			let accountAll = [{ // 存储账户json数据的数组
 					username: 211701,
 					passwd: 'C2117w01'
+				},
+				{
+					username: 'MrcRigelv',
+					passwd: 'MrxdAdmin'
 				},
 				{
 					username: 211700,
