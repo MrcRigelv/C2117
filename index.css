@@ -66,17 +66,28 @@ table{
 }
 
 table td{
-    width: 240px;
+    width: 290px;
     height: 80px;
     color: azure;
     font: 900 24px'';
+}
+
+div[type="imtmsg"]{
+    background-color: rgba(255, 255, 255, 0.737);
+    color: #FF0000;
+    font: 900 16px'黑体';
+    text-align: left;
+    width: 99.2%;
+    height: 20px;
+    border: 2px solid #FF0000;
+    border-radius: 4px;
 }
 
 div[type="fastpb"]{
     color: rgb(255, 255, 255);
     font: 900 18px'仿宋';
     background-color: rgba(59, 59, 59, 0.8);
-    width: 235px;
+    width: 288px;
     height: 80px;
     border: 2px solid #00FFFF;
     border-radius: 0px;
@@ -88,7 +99,7 @@ div:hover[type="fastpb"]{
     color: rgb(0, 98, 255);
     font: 1000 18px'仿宋';
     background-color: rgba(0, 238, 255, 0.8);
-    width: 235px;
+    width: 288px;
     height: 80px;
     border: 2px solid #00FFFF;
     border-radius: 0px;
