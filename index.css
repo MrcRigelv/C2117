@@ -66,7 +66,7 @@ table{
 }
 
 table td{
-    width: 270px;
+    width: 240px;
     height: 80px;
     color: azure;
     font: 900 24px'';
@@ -76,7 +76,7 @@ div[type="fastpb"]{
     color: rgb(255, 255, 255);
     font: 900 18px'仿宋';
     background-color: rgba(59, 59, 59, 0.8);
-    width: 268px;
+    width: 235px;
     height: 80px;
     border: 2px solid #00FFFF;
     border-radius: 0px;
@@ -88,7 +88,7 @@ div:hover[type="fastpb"]{
     color: rgb(0, 98, 255);
     font: 1000 18px'仿宋';
     background-color: rgba(0, 238, 255, 0.8);
-    width: 268px;
+    width: 235px;
     height: 80px;
     border: 2px solid #00FFFF;
     border-radius: 0px;
