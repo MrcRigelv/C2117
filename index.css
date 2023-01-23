@@ -1,9 +1,10 @@
-body{
-            
+body{       
     background-image: url('https://c2.im5i.com/2023/01/22/YHyi7.jpeg');
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+    background-attachment:scroll;
+    background-size: 100% auto;
+    background-repeat:repeat-x; /* 表示水平平铺 */
+    
+
 }
 
 *{           /*清除所有标签的初始内外边距*/
@@ -56,4 +57,41 @@ button{
     width: 256px;
     height: 48px;
     border: 2px solid #00FFFF;
+}
+
+table{
+    border: 1px solid #FF00FF;
+    color: azure;
+    font: 900 24px'黑体';
+}
+
+table td{
+    width: 290px;
+    height: 80px;
+    color: azure;
+    font: 900 24px'';
+}
+
+div[type="fastpb"]{
+    color: rgb(255, 255, 255);
+    font: 900 18px'仿宋';
+    background-color: rgba(59, 59, 59, 0.8);
+    width: 288px;
+    height: 80px;
+    border: 2px solid #00FFFF;
+    border-radius: 0px;
+    text-align: center;
+    text-decoration: none;/*去掉下划线*/
+}
+
+div:hover[type="fastpb"]{
+    color: rgb(0, 98, 255);
+    font: 1000 18px'仿宋';
+    background-color: rgba(0, 238, 255, 0.8);
+    width: 288px;
+    height: 80px;
+    border: 2px solid #00FFFF;
+    border-radius: 0px;
+    text-align: center center;
+    text-decoration: none;/*去掉下划线*/
 }
