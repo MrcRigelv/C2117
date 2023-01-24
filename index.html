@@ -4,14 +4,100 @@
     <meta name="viewport" contect="width=device-witdh,initial-scale=1.0,maximun-scale=1.0,minimum-scale=1.0">
     <title>湛江港城中学初二17官网-主页</title>
     </style>
-    <link href="./index.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css" title="CSS1" id="CSS1">
+
+    <link rel="stylesheet" type="text/css" href="index_2.css" title="CSS2" id="CSS2" disabled>
+
+    <link rel="stylesheet" type="text/css" href="index_3.css" title="CSS3" id="CSS3" disabled>
+    <script>
+    function changeCss(id){
+        for(var i=1;i<5;i++){
+        if(i==id)
+        document.getElementById("CSS"+i).disabled = false;
+        else
+        document.getElementById("CSS"+i).disabled = true;
+        }
+    }
+
+    </script>
+    <script>
+		Date.prototype.format = function (fmt) {
+			var o = {
+				"y+": this.getFullYear, //年
+				"M+": this.getMonth() + 1, //月份
+				"d+": this.getDate(), //日
+				"h+": this.getHours(), //小时
+				"m+": this.getMinutes(), //分
+				"s+": this.getSeconds() //秒
+			};
+			if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for (var k in o)
+				if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+			return fmt;
+		}
+		setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+	</script>
+    <script type="text/javascript">
+        function displayAlert(type, data, time){
+    
+        var notification=document.createElement("div");
+        
+          if(type == "success") {
+              notification.style.backgroundColor = "#009900";
+          } else if(type == "error") {
+              notification.style.backgroundColor = "#990000";
+          } else if(type == "info") {
+              notification.style.backgroundColor = " #e6b800";
+          } else if(type == "notice1") {
+              notification.style.backgroundColor = " #0088ff";
+          } else {
+              console.log("入参type错误");
+              return;
+          }
+    
+          notification.id="notification";
+          notification.style.position = "absolute";
+          notification.style.width = "256px";
+          notification.style.height = "60px";
+          notification.style.marginLeft = "-100px";
+          notification.style.marginTop = "-30px";
+          notification.style.right = "1px";
+          notification.style.top = "80%";
+          notification.style.color = "white";
+          notification.style.fontSize = "16px";
+          notification.style.border = "2px"
+          notification.style.borderRadius = "0px";
+          notification.style.textAlign="center";
+          notification.style.lineHeight="60px";
+    
+          if(document.getElementById("notification")==null){
+              document.body.appendChild(notification);
+              notification.innerHTML=data;
+              setTimeout(function(){
+                  document.body.removeChild(notification);
+              } ,time);
+          }
+        }
+        function test0() {
+            displayAlert("success", "success TEST", 1500);
+        }
+        function test1() {
+            displayAlert("error", "error TEST", 1500);
+        }
+        function test2() {
+            displayAlert("info", "info TEST", 1500);
+        }
+        function test3() {
+            displayAlert("notice1", "Completed", 1500);
+        }
+    </script>
     <script src="./hm.js"></script>
 
    </head>
     <body>
     <!--主体-->
     <!--头部导航栏 -->
-        <div class="nav" >
+        <div class="nav" id="nav">
             <div style="float: left">
                 <img style="width: 62px; float: left; margin: 0" src="https://cdn-pic.gcxstudio.cn/2022/10/22/vD1B.png" alt="logo" border="0">
                 <div id="webnameDiv" style="overflow: hidden; height: 65px; line-height: 65px; font-family: 黑体; color: #fff; font-size: 33px; padding-left: 5px; float: left;">
@@ -22,12 +108,32 @@
                 </div>
             </div>
             <ul class="ul_top">
- 
+                
                 <li><a href="./index.html">首页</a></li>
                 <li><a href="./zw.html">公告&通知</a></li>
                 <li><a href="./kitbox.html">资源库</a></li>
                 <li><a href="./cpwall.html">表白墙</a></li>
                 <li><a href="./login.html">退出登录</a></li>
+                <li>
+                    <a href = "javascript:void(0)"onclick = "document.getElementById('lightenchant').style.display='block';document.getElementById('fadeenchant').style.display='block'">设置界面</a> 
+                    <div id="lightenchant" class="white_content">                     
+                        <div id="settingtext" style="text-align: left;font: 900 20px'黑体'">设置界面</div>
+                        <div>
+                            <table border="1" type="hudm">
+                                <tr type="hudm">
+                                    <th type="hudm">设置背景主题</th>
+                                    <th type="hudm"></th>
+                                    <th type="hudm"></th>
+                                </tr type="hudm">
+                                    <td type="hudm"><a href="javascript:changeCss(1)" onclick="test3();">默认</a></td>
+                                    <td type="hudm"><a href="javascript:changeCss(2)" onclick="test3();">浅色</a></td>
+                                    <td type="hudm"><a href="javascript:changeCss(3)" onclick="test3();">深色</a></td>
+                            </table>
+                        </div>
+                        <a href = "javascript:void(0)" onclick = "document.getElementById('lightenchant').style.display='none';document.getElementById('fadeenchant').style.display='none'"><button type="hudm">关闭</button></a></div>
+                    </div> 
+                    <div id="fadeenchant" class="black_overlay"></div>
+                </li>
             </ul>
         </div>
 
@@ -37,14 +143,14 @@
         <div>通知：‘网站3.0版本试运行,全新UI设计’</div>
     </div>
     <div id="fastpt" type="fastpt">
-    <table border="1">
-        <tr>
+    <table border="1" type="hudb">
+        <tr type="hudb">
         <th>快速访问</th>
         <th></th>
         <th></th>
         <th></th>
         </tr>
-        <tr>
+        <tr type="hudb">
         <td><a href="https://www.zhixue.com"><div type="fastpb">访问智学网</div></a></td>
         <td><a href="./zw.html"><div type="fastpb">访问公告&通知页</div></a></td>
         <td><a href="./kitbox.html"><div type="fastpb">访问资源库</div></a></td>
@@ -56,10 +162,19 @@
         <td><a href="https://bilibili.com"><div type="fastpb">访问B站</div></a></td>
         <td><a href="https://www.desmos.com/calculator?lang=zh-CN"><div type="fastpb">访问Desmos函数绘图</div></a></td>
         </tr>
+        <td><a href="https://ikun.ee/"><div type="fastpb">鸡乐盒</div></a></td>
+        <td><a href="https://www.zxx.edu.cn/"><div type="fastpb">中国中小学智慧教育平台</div></a></td>
+        <td><a href="https://cxk.我爱你/"><div type="fastpb">Ikun导航</div></a></td>
+        <td><a href="https://github.com"><div type="fastpb">Github</div></a></td>
     </table>
-
+    </div>
+    <div id="end" type="end">
+        Created by Mrxd[33],QQ:2959306312
+    </div>
+    <div id="time" type="time">
+        <div id="dateTime" style="font: 900 14px ''; color:#ffffff">[当前时间]</div>
+    </div>
     
     
 </body>
 </html>
-
