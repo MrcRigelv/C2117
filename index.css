@@ -3,8 +3,8 @@ body{
     background-attachment:scroll;
     background-size: 100% auto;
     background-repeat:repeat-x; /* 表示水平平铺 */
-    
-
+    width: 100%;
+    height: 100%;
 }
 
 *{           /*清除所有标签的初始内外边距*/
@@ -13,7 +13,7 @@ body{
 }
 
 .nav{
-    background-image: linear-gradient(to left,#f700ff75,#00ffff75);  /*颜色*/
+    background-image: linear-gradient(to left,#f700ffd5,#00ffff75);  /*颜色*/
     height: 65px;/*高度140像素*/
     width: 100%;/*宽度为<body>的100%，也就是相同宽度*/
     line-height:35px;/*行高，看文字位置你就明白了*/
@@ -33,7 +33,7 @@ body{
     list-style: none;/*去除列表格式，消除小黑点*/
     position: absolute;
     top: 15px;/*距离顶部15px*/
-    right: 60px;/*距离左侧70px*/
+    right: 70px;/*距离左侧70px*/
     font: 16px '';
 }
 
@@ -51,7 +51,7 @@ body{
     background:rgb(0, 224, 138);/*背景色为绿色*/
 }
 
-button{
+button[type=hudb]{
     color: white;
     background-color: #3b3b3b;
     width: 256px;
@@ -59,17 +59,36 @@ button{
     border: 2px solid #00FFFF;
 }
 
-table{
+button[type=hudm]{
+    color: white;
+    background-color: #3b3b3b;
+    width: 128px;
+    height: 36px;
+    border: 2px solid #00FFFF;
+}
+
+table[type="hudb"]{
     border: 1px solid #FF00FF;
     color: azure;
     font: 900 24px'黑体';
 }
 
-table td{
-    width: 290px;
+table[type="hudm"]{
+    border: 1px solid #FF00FF;
+    color: azure;
+    font: 900 14px'黑体';
+}
+
+table td[type="hudb"]{
+    width: 250px;
     height: 80px;
     color: azure;
     font: 900 24px'';
+}
+
+table td[type="hudm"]{
+    color: azure;
+    ;
 }
 
 div[type="imtmsg"]{
@@ -77,7 +96,7 @@ div[type="imtmsg"]{
     color: #FF0000;
     font: 900 16px'黑体';
     text-align: left;
-    width: 99.2%;
+    width: 99.7%;
     height: 20px;
     border: 2px solid #FF0000;
     border-radius: 4px;
@@ -87,7 +106,7 @@ div[type="fastpb"]{
     color: rgb(255, 255, 255);
     font: 900 18px'仿宋';
     background-color: rgba(59, 59, 59, 0.8);
-    width: 288px;
+    width: 260px;
     height: 80px;
     border: 2px solid #00FFFF;
     border-radius: 0px;
@@ -99,10 +118,82 @@ div:hover[type="fastpb"]{
     color: rgb(0, 98, 255);
     font: 1000 18px'仿宋';
     background-color: rgba(0, 238, 255, 0.8);
-    width: 288px;
+    width: 260px;
     height: 80px;
     border: 2px solid #00FFFF;
     border-radius: 0px;
     text-align: center center;
     text-decoration: none;/*去掉下划线*/
+}
+
+.black_overlay{ 
+    display: none; 
+    position: absolute; 
+    top: 0%; 
+    left: 0%; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(226, 105, 105, 0); 
+    z-index:1001; 
+    -moz-opacity: 0.8; 
+    opacity:.80; 
+    filter: alpha(opacity=88); 
+} 
+.white_content { 
+    display: none; 
+    position: absolute; 
+    text-align: left;
+    color: #efefef;
+    font: 900 14px'宋体';
+    top: -10px;
+    right: 0px; 
+    width: 320px; 
+    height: 480px; 
+    padding: 0px; 
+    border: 2px solid rgb(225, 0, 255); 
+    background-color: rgb(32, 32, 32); 
+    z-index:1002; 
+    overflow: auto; 
+} 
+
+.slider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 10px;
+    border-radius: 0px;
+    background: #00ffff;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    filter: drop-shadow(0px 0px 2px #00fffb);
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 0%;
+    background: #ff00ff;
+    cursor: pointer;
+    transition: .25s;
+}
+
+#end{
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 75%;
+    height: 20px;
+    border: 1px solid #00ffff;
+}
+
+#time{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    width: 24.8%;
+    height: 20px;
+    border: 1px solid #00ffff;
+    text-align: center;
 }
